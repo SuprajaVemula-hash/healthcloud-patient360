@@ -1,5 +1,5 @@
 import { LightningElement, api, wire } from 'lwc';
-import getPatientSummary from '@salesforce/apex/Patient360Service.getPatientSummary';
+import getPatient360Data from '@salesforce/apex/Patient360Service.getPatient360Data';
 
 export default class PatientSummary extends LightningElement {
 
@@ -7,15 +7,12 @@ export default class PatientSummary extends LightningElement {
 
     patient;
     error;
-    connectedCallback(){
-    console.log('Record Id -> ', this.recordId);
-}
 
-    @wire(getPatientSummary, { patientId: '$recordId' })
+    @wire(getPatient360Data, { patientId: '$recordId' })
     wiredPatient({ error, data }) {
 
         if(data){
-            this.patient = data;
+            this.patient = data.patient;
             this.error = undefined;
         }
         else if(error){
@@ -24,5 +21,4 @@ export default class PatientSummary extends LightningElement {
         }
 
     }
-
 }

@@ -2,26 +2,26 @@
 
     <lightning-card title="Patient Summary">
 
-        <template lwc:true={patient}>
-
+        <template lwc:if={patient}>
             <div class="slds-p-around_medium">
 
-                <p><strong>Name:</strong> {patient.name}</p>
+                <p><strong>Name:</strong> {patient.Name}</p>
 
-                <p><strong>Birth Date:</strong> {patient.birthDate}</p>
+                <p><strong>Birthdate:</strong> {patient.PersonBirthdate}</p>
 
-                
-
-                <p><strong>Phone:</strong> {patient.phone}</p>
-
-                
+                <p><strong>Phone:</strong> {patient.PersonMobilePhone}</p>
 
             </div>
-
         </template>
 
-        <template lwc:true={error}>
-            <p class="slds-text-color_error">Error loading patient data</p>
+          <template lwc:elseif={error}>
+            <p class="slds-text-color_error">
+                Error loading patient
+            </p>
+        </template>
+
+        <template lwc:else>
+            <p>No patient data available</p>
         </template>
 
     </lightning-card>
