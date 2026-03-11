@@ -1,0 +1,45 @@
+<template>
+
+    <lightning-card title="Insurance">
+
+        <template if:true={insuranceList}>
+
+            <div class="slds-p-around_medium">
+
+                <table class="slds-table slds-table_cell-buffer slds-table_bordered">
+
+                    <thead>
+                        <tr>
+                            <th>Provider</th>
+                            <th>Policy Number</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+
+                        <template for:each={insuranceList} for:item="ins">
+
+                            <tr key={ins.Id}>
+                                <td>{ins.Provider_Name__c}</td>
+                                <td>{ins.Policy_Number__c}</td>
+                                <td>{ins.Coverage_Status__c}</td>
+                            </tr>
+
+                        </template>
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </template>
+
+        <template if:false={insuranceList}>
+            <p class="slds-p-around_medium">No Insurance Found</p>
+        </template>
+
+    </lightning-card>
+
+</template>
