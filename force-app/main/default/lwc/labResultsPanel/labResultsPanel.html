@@ -1,0 +1,45 @@
+<template>
+
+    <lightning-card title="Lab Results">
+
+        <template if:true={labResults}>
+
+            <div class="slds-p-around_medium">
+
+                <table class="slds-table slds-table_cell-buffer slds-table_bordered">
+
+                    <thead>
+                        <tr>
+                            <th>Test Name</th>
+                            <th>Result</th>
+                            <th>Test Date</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+
+                        <template for:each={labResults} for:item="lab">
+
+                            <tr key={lab.Id}>
+                                <td>{lab.Test_Name__c}</td>
+                                <td>{lab.Result__c}</td>
+                                <td>{lab.Test_Date__c}</td>
+                            </tr>
+
+                        </template>
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </template>
+
+        <template if:false={labResults}>
+            <p class="slds-p-around_medium">No Lab Results Found</p>
+        </template>
+
+    </lightning-card>
+
+</template>
