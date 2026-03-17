@@ -1,23 +1,25 @@
 import { LightningElement, api, wire } from 'lwc';
-import getPatient360Data from '@salesforce/apex/Patient360Service.getPatient360Data';
+import getMedications from '@salesforce/apex/Patient360Service.getMedications';
 
 export default class MedicationsPanel extends LightningElement {
 
     @api recordId;
 
-    medications;
-    error;
+    medications = [];
 
-    @wire(getPatient360Data, { patientId: '$recordId' })
-    wiredData({ error, data }) {
+    @wire(getMedications, { patientId: '$recordId' })
+    wiredMedications({data,error}){
 
         if(data){
-            this.medications = data.medications;
-            this.error = undefined;
+
+            this.medications = data;
+
         }
-        else if(error){
-            this.error = error;
-            this.medications = undefined;
+
+        if(error){
+
+            console.error(error);
+
         }
 
     }

@@ -1,0 +1,23 @@
+<template>
+
+<lightning-card title="Communication History" icon-name="utility:call">
+
+    <template for:each={communications} for:item="comm">
+
+        <div key={comm.Id} class="comm-item">
+
+            <div class="date">
+                {comm.ActivityDate}
+            </div>
+
+            <div class="subject">
+                {comm.Subject}
+            </div>
+
+        </div>
+
+    </template>
+
+</lightning-card>
+
+</template>

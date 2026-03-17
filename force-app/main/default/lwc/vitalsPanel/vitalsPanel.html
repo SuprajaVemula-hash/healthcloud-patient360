@@ -1,0 +1,71 @@
+<!-- <template>
+
+<lightning-card title="Vitals & Labs" icon-name="utility:heart">
+
+<template lwc:if={vitals}>
+
+<ul class="slds-list_dotted">
+
+<template for:each={vitals} for:item="v">
+
+<li key={v.Id}>
+
+<strong>{v.ObservationType}</strong>
+
+<br/>
+
+Value: {v.ObservationValue}
+
+<br/>
+
+Recorded On: {v.ObservationDate}
+
+</li>
+
+</template>
+
+</ul>
+
+</template>
+
+</lightning-card>
+
+</template> -->
+<template>
+
+<lightning-card title="Vitals & Labs" icon-name="utility:favorite">
+
+    <div class="vitals-container">
+
+        <template for:each={formattedVitals} for:item="item">
+
+            <div key={item.Id} class="vital-card">
+
+                <div class="icon">
+                    {getIcon(item.displayName)}
+                </div>
+
+                <div class="info">
+
+                    <div class="label">
+                       Name: {item.displayName}
+                    </div>
+
+                    <div class="value">
+                        Status:{item.displayValue}
+                    </div>
+                    <div class="date">
+                        Recorded On: {item.displayDate}
+                    </div>
+
+                </div>
+
+            </div>
+
+        </template>
+
+    </div>
+
+</lightning-card>
+
+</template>

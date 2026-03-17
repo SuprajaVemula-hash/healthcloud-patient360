@@ -1,0 +1,36 @@
+<template>
+
+<lightning-card title="Care Team" icon-name="utility:people">
+
+<template lwc:if={careTeam}>
+
+<ul class="slds-list_dotted">
+
+<template for:each={careTeam} for:item="member">
+
+<!-- <li key={member.Id}>
+
+<strong>{member.MemberId.Name}</strong> -->
+<li key={member.Id}>
+
+<strong>Provider Id: {member.MemberId}</strong>
+
+<br/>
+
+Role: {member.Role}
+
+<br/>
+
+Status: {member.Status__c}
+
+</li>
+
+</template>
+
+</ul>
+
+</template>
+
+</lightning-card>
+
+</template>

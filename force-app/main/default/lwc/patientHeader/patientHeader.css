@@ -1,0 +1,54 @@
+.patient-banner {
+
+    background: linear-gradient(90deg,#1F6FEB,#00A8A8);
+    color: white;
+
+    padding: 20px;
+    border-radius: 10px;
+    display:flex;
+    gap:16px;
+    align-items:center;
+
+}
+
+.patient-info{
+
+    display:flex;
+    align-items:center;
+    gap:20px;
+
+}
+
+.details h2{
+
+   font-size:18px;
+    font-weight:600;
+    color:#1F2937;
+
+}
+.details p{
+
+    margin:2px 0;
+    font-size:13px;
+    color:#0a1731;
+
+}
+:host {
+
+    display:block;
+
+}
+
+lightning-card {
+
+    border-radius:10px;
+
+}
+.profile-img{
+
+    width:60px;
+    height:60px;
+    border-radius:50%;
+    object-fit:cover;
+
+}

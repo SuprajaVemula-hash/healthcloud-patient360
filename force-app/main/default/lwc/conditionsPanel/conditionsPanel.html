@@ -1,0 +1,33 @@
+<template>
+
+<lightning-card title="Conditions" icon-name="utility:warning">
+
+<template lwc:if={conditions}>
+
+<ul class="slds-list_dotted">
+
+<template for:each={conditions} for:item="c">
+
+<li key={c.Id}>
+
+<strong>{c.Condition_Name__c}</strong>
+
+<br/>
+
+Status: {c.ConditionStatus}
+
+<br/>
+
+Diagnosed: {c.OnsetPeriodStart}
+
+</li>
+
+</template>
+
+</ul>
+
+</template>
+
+</lightning-card>
+
+</template>

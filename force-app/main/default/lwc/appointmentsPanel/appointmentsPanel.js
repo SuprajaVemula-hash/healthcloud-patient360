@@ -1,23 +1,21 @@
 import { LightningElement, api, wire } from 'lwc';
-import getPatient360Data from '@salesforce/apex/Patient360Service.getPatient360Data';
+import getAppointments from '@salesforce/apex/Patient360Service.getAppointments';
 
 export default class AppointmentsPanel extends LightningElement {
 
     @api recordId;
 
     appointments;
-    error;
 
-    @wire(getPatient360Data, { patientId: '$recordId' })
-    wiredData({ error, data }) {
+    @wire(getAppointments, { patientId: '$recordId' })
+    wiredAppointments({ error, data }) {
 
         if(data){
-            this.appointments = data.appointments;
-            this.error = undefined;
+            this.appointments = data;
         }
-        else if(error){
-            this.error = error;
-            this.appointments = undefined;
+
+        if(error){
+            console.error(error);
         }
 
     }

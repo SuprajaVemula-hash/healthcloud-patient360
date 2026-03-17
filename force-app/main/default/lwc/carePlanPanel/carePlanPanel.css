@@ -1,0 +1,44 @@
+.care-list{
+
+    list-style:none;
+    padding-left:0;
+
+}
+
+.care-item{
+
+    padding:8px 0;
+    border-bottom:1px solid #E5E7EB;
+
+}
+
+.plan-name{
+
+    font-weight:600;
+    color:#1F2937;
+
+}
+
+.goal{
+
+    color:#1F6FEB;
+
+}
+
+.status{
+
+    font-size:12px;
+    color:#6B7280;
+
+}
+:host {
+
+    display:block;
+
+}
+
+lightning-card {
+
+    border-radius:10px;
+
+}

@@ -1,45 +1,40 @@
 <template>
 
-    <lightning-card title="Medications">
+<lightning-card title="Medications" icon-name="utility:drug">
 
-        <template if:true={medications}>
+    <template if:true={medications}>
 
-            <div class="slds-p-around_medium">
+        <ul class="med-list">
 
-                <table class="slds-table slds-table_cell-buffer slds-table_bordered">
+            <template for:each={medications} for:item="med">
 
-                    <thead>
-                        <tr>
-                            <th>Medicine</th>
-                            <th>Dosage</th>
-                            <th>Start Date</th>
-                        </tr>
-                    </thead>
+                <li key={med.Id} class="med-item">
+                    <span class ="med-name">
+                       Medication Name: {med.Name}
+                    </span>
+                    <br/>
 
-                    <tbody>
+                    <span class="med-name">
+                       Medicine Name: {med.Medicine_Name__c}
+                    </span>
+                    <br/>
 
-                        <template for:each={medications} for:item="med">
+                    <span class="dose">
+                       Dosage: {med.Dosage__c}
+                    </span>
+                    <br/>
+                    <span class="status">
+                       Start Date: ({med.Start_Date__c})
+                    </span>
 
-                            <tr key={med.Id}>
-                                <td>{med.Medicine_Name__c}</td>
-                                <td>{med.Dosage__c}</td>
-                                <td>{med.Start_Date__c}</td>
-                            </tr>
+                </li>
 
-                        </template>
+            </template>
 
-                    </tbody>
+        </ul>
 
-                </table>
+    </template>
 
-            </div>
-
-        </template>
-
-        <template if:false={medications}>
-            <p class="slds-p-around_medium">No Medications Found</p>
-        </template>
-
-    </lightning-card>
+</lightning-card>
 
 </template>

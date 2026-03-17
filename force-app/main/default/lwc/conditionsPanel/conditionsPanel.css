@@ -1,0 +1,17 @@
+:host {
+
+    display:block;
+
+}
+
+lightning-card {
+
+    border-radius:10px;
+
+}
+.slds-card__header{
+
+    background:#1F6FEB;
+    color:white;
+
+}

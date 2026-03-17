@@ -1,0 +1,36 @@
+<template>
+    <template if:true={patient}>
+        <div class="patient-banner">
+
+            <div class="patient-info">
+
+                <template if:true={photoUrl}>
+        <img src={photoUrl} class="profile-img"/>
+    </template>
+
+    <template if:false={photoUrl}>
+        <lightning-avatar fallback-icon-name="standard:person_account"></lightning-avatar>
+    </template>
+                </div>
+
+                <div class="details">
+                    <h2>{patient.Name}</h2>
+
+                    <p>
+                        • DOB: {patient.PersonBirthdate}<br/>
+                        • Phone: {patient.PersonMobilePhone}<br/>
+                        • Email: {patient.PersonEmail}<br/>
+                        • City: {patient.PersonMailingCity}
+                    </p>
+
+                </div>
+
+            </div>
+
+        
+    </template>
+    <template if:false={patient}>
+       
+        <p>Loading patient information...</p>
+    </template>
+</template>

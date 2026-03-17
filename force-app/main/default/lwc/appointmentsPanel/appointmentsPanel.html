@@ -1,45 +1,36 @@
 <template>
 
-    <lightning-card title="Appointments">
+<lightning-card title="Appointments" icon-name="utility:event">
 
-        <template if:true={appointments}>
+<template lwc:if={appointments}>
 
-            <div class="slds-p-around_medium">
+<ul class="slds-list_dotted">
 
-                <table class="slds-table slds-table_cell-buffer slds-table_bordered">
+<template for:each={appointments} for:item="appt">
 
-                    <thead>
-                        <tr>
-                            <th>Date</th>
-                            <th>Doctor</th>
-                            <th>Status</th>
-                        </tr>
-                    </thead>
+<li key={appt.Id}>
 
-                    <tbody>
 
-                        <template for:each={appointments} for:item="appt">
+<br/>
 
-                            <tr key={appt.Id}>
-                                <td>{appt.Appointment_Date__c}</td>
-                                <td>{appt.Doctor__r.Name}</td>
-                                <td>{appt.Status__c}</td>
-                            </tr>
+Doctor: {appt.Doctor__r.Name}
 
-                        </template>
+<br/>
 
-                    </tbody>
+Date: {appt.Appointment_Date__c}
 
-                </table>
+<br/>
 
-            </div>
+Status: {appt.Status__c}
 
-        </template>
+</li>
 
-        <template if:false={appointments}>
-            <p class="slds-p-around_medium">No Appointments Found</p>
-        </template>
+</template>
 
-    </lightning-card>
+</ul>
+
+</template>
+
+</lightning-card>
 
 </template>

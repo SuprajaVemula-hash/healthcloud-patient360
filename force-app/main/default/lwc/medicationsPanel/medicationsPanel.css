@@ -1,0 +1,38 @@
+:host {
+
+    display:block;
+
+}
+
+lightning-card {
+
+    border-radius:10px;
+
+}
+.med-list{
+
+    list-style:none;
+    padding-left:0;
+
+}
+
+.med-item{
+
+    padding:6px 0;
+    border-bottom:1px solid #E5E7EB;
+
+}
+
+.med-name{
+
+    font-weight:600;
+    color:#1F2937;
+
+}
+
+.dose{
+
+    color:#6B7280;
+    margin-left:6px;
+
+}

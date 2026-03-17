@@ -1,0 +1,74 @@
+<!-- <template>
+
+<lightning-card title="Health Timeline" icon-name="utility:timeline">
+
+    <template if:true={timeline}>
+
+        <ul class="timeline">
+
+            <template for:each={timeline} for:item="event">
+
+                <li key={event.Id} class="timeline-item">
+
+                    <div class="date">
+                        {event.OnsetStartDateTime}
+                    </div>
+
+                    <div class="event">
+
+                        {event.Condition_Name__c}
+
+                        <span class="status">
+                            ({event.ConditionStatus})
+                        </span>
+
+                    </div>
+
+                </li>
+
+            </template>
+
+        </ul>
+
+    </template>
+
+</lightning-card>
+
+</template> -->
+<template>
+
+<lightning-card title="Health Timeline" icon-name="standard:event">
+
+    <div class="timeline">
+
+        <template for:each={formattedTimeline} for:item="event">
+
+            <div key={event.id} class="timeline-item">
+
+                <div class="dot"></div>
+
+                <div class="content">
+
+                   <div class="timeline-title">
+    {event.title}
+</div>
+
+<div class="timeline-type">
+    {event.type} - {event.status}
+</div>
+
+<div class="timeline-date">
+    {event.formattedDate}
+</div>
+
+                </div>
+
+            </div>
+
+        </template>
+
+    </div>
+
+</lightning-card>
+
+</template>

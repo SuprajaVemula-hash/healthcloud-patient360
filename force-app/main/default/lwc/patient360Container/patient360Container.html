@@ -1,0 +1,44 @@
+<template>
+
+<div class="dashboard">
+
+    
+    <div class="left">
+
+        <c-patient-header record-id={recordId}></c-patient-header>
+
+        <c-conditions-panel record-id={recordId}></c-conditions-panel>
+        <c-medications-panel record-id={recordId}></c-medications-panel>
+        <c-care-team-panel record-id={recordId}></c-care-team-panel>
+        
+
+    </div>
+
+    <div class="center">
+
+       <c-health-timeline record-id={recordId}></c-health-timeline>
+
+        <c-care-plan-panel record-id={recordId}></c-care-plan-panel>
+
+        <c-appointments-panel record-id={recordId}></c-appointments-panel>
+
+        <c-communication-history record-id={recordId}></c-communication-history>
+
+    </div>
+
+
+   
+    <div class="right">
+
+        <c-vitals-panel record-id={recordId}></c-vitals-panel>
+
+        <c-lab-results-panel record-id={recordId}></c-lab-results-panel>
+
+        <c-insurance-panel record-id={recordId}></c-insurance-panel>
+       
+
+    </div>
+
+</div>
+
+</template>

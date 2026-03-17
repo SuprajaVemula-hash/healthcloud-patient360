@@ -1,0 +1,39 @@
+<template>
+
+<lightning-card title="Care Plan" icon-name="utility:task">
+
+    <template if:true={carePlans}>
+
+        <ul class="care-list">
+
+            <template for:each={carePlans} for:item="plan">
+
+                <li key={plan.Id} class="care-item">
+
+                    <div class="plan-name">
+                       Name of the care Plan: {plan.Name}
+                    </div>
+
+                    <div class="goal">
+                        Goal: {plan.Description}
+                    </div>
+
+                    <div class="status">
+                        Status: {plan.Status}
+                    </div>
+
+                    <div class="start-date">
+                        Start Date: {plan.StartDate}
+                    </div>
+
+                </li>
+
+            </template>
+
+        </ul>
+
+    </template>
+
+</lightning-card>
+
+</template>
