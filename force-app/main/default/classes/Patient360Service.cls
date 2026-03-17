@@ -28,6 +28,7 @@ public with sharing class Patient360Service {
             FROM Appointment__c
             WHERE Patient__c = :patientId
             ORDER BY Appointment_Date__c DESC
+            LIMIT 20
         ];
 
        
@@ -35,6 +36,8 @@ public with sharing class Patient360Service {
             SELECT Id, Medicine_Name__c, Dosage__c, Start_Date__c
             FROM Medication__c
             WHERE Patient__c = :patientId
+            ORDER BY Start_Date__c DESC
+            LIMIT 20
         ];
 
        
@@ -42,6 +45,8 @@ public with sharing class Patient360Service {
             SELECT Id, Test_Name__c, Result__c, Test_Date__c
             FROM Lab_Result__c
             WHERE Patient__c = :patientId
+            ORDER BY Test_Date__c DESC
+            LIMIT 20
         ];
 
         
@@ -49,6 +54,7 @@ public with sharing class Patient360Service {
             SELECT Id, Provider_Name__c, Policy_Number__c, Coverage_Status__c
             FROM Insurance__c
             WHERE Patient__c = :patientId
+            LIMIT 10
         ];
 
         return wrapper;
@@ -76,6 +82,8 @@ public static List<TimelineEvent> getTimeline(Id patientId){
                DiagnosticStatus
         FROM HealthCondition
         WHERE PatientId = :patientId
+        ORDER BY OnsetStartDateTime DESC
+        LIMIT 20
     ]){
 
         TimelineEvent e = new TimelineEvent();
@@ -95,6 +103,8 @@ public static List<TimelineEvent> getTimeline(Id patientId){
         SELECT Id, Medication_Request_Name__c, MedicationCodeId, Status, PrescribedDate
         FROM MedicationRequest
         WHERE PatientId = :patientId
+        ORDER BY PrescribedDate DESC
+        LIMIT 20
     ]){
 
         TimelineEvent e = new TimelineEvent();
@@ -118,6 +128,8 @@ public static List<TimelineEvent> getTimeline(Id patientId){
                ObservationStartTime
         FROM CareObservation
         WHERE ObservedSubjectId = :patientId
+        ORDER BY ObservationStartTime DESC
+        LIMIT 20
     ]){
 
         TimelineEvent e = new TimelineEvent();
@@ -160,6 +172,7 @@ public static List<HealthCondition> getConditions(Id patientId){
         FROM HealthCondition
         WHERE PatientId = :patientId
         ORDER BY OnsetStartDateTime DESC
+        LIMIT 20
     ];
 
 }
@@ -177,6 +190,7 @@ public static List<CareProgramTeamMember> getCareTeam(Id patientId){
        END
 FROM CareProgramTeamMember
     WHERE AccountId = :patientId
+    LIMIT 10
     ];
 
 }
@@ -191,6 +205,7 @@ public static List<Appointment__c> getAppointments(Id patientId){
         FROM Appointment__c
         WHERE Patient__c = :patientId
         ORDER BY Appointment_Date__c DESC
+        LIMIT 20
     ];
 
 }
@@ -206,6 +221,7 @@ public static List<CareObservation> getVitals(Id patientId){
         FROM CareObservation
         WHERE ObservedSubjectId = :patientId
         ORDER BY ObservationStartTime DESC
+        LIMIT 20
     ];
 
 }
@@ -222,6 +238,7 @@ public static List<Medication__c> getMedications(Id patientId){
         FROM Medication__c
         WHERE Patient__c = :patientId
         ORDER BY CreatedDate DESC
+        LIMIT 20
 
     ];
 
@@ -239,6 +256,7 @@ public static List<CarePlan> getCarePlans(Id patientId){
         FROM CarePlan
         WHERE ParticipantId = :patientId
         ORDER BY CreatedDate DESC
+        LIMIT 10
 
     ];
 
